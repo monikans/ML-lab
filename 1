@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.pyplot import cm
+from mpl_toolkits.mplot3d import Axes3D
+data = np.random.rand(100,3)
+df = pd.DataFrame(data,columns=['Feature 1','Feature 2','Feature 3'])
+plt.figure(figsize=(12,8))
+x,y = np.meshgrid(np.linspace(0,1,100),np.linspace(0,1,100))
+z = np.sin(x*np.pi)*np.cos(y*np.pi)
+ax = plt.subplot(2,3,5, projection='3d')
+surf = ax.plot_surface(x,y,z,cmap = cm.coolwarm,edgecolor = 'none')
+plt.colorbar(surf)
+plt.tight_layout()
+plt.show()
